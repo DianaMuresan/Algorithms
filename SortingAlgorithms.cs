@@ -55,65 +55,65 @@ namespace InsertionSort
             return arr;
         }
 
-        //public static void Merge(int[] arr, int p, int q, int r)
-        //{
-        //    int intMax = 100;
-        //    int n1 = q - p + 1;
-        //    int n2 = r - q;
-        //    int i, j;
-        //    int[] L = new int[n1];
-        //    int[] R = new int[n2];
-
-        //    for (i = 0; i < n1; i++)
-        //        L[i] = arr[p + i - 1];
-        //    for (j = 0; j < n2; j++)
-        //        R[j] = arr[q + j];
-        //    L[n1 + 1] = intMax;
-        //    R[n2 + 1] = intMax;
-        //    i = 1;
-        //    j = 1;
-        //    for (int k = p; k <= r; k++)
-        //        if (L[i] <= R[j])
-        //        {
-        //            arr[k] = L[i];
-        //            i = i + 1;
-        //        }
-        //        else
-        //        {
-        //            arr[k] = R[j];
-        //            j = j + 1;
-        //        }
-        //}
-
-        static public void Merge(int[] numbers, int left, int mid, int right)
+        public static void Merge(int[] arr, int p, int q, int r)
         {
-            int[] temp = new int[25];
-            int i, left_end, num_elements, tmp_pos;
+            int intMax = 100;
+            int n1 = q - p + 1;
+            int n2 = r - q;
+            int i, j;
+            int[] L = new int[n1];
+            int[] R = new int[n2];
 
-            left_end = (mid - 1);
-            tmp_pos = left;
-            num_elements = (right - left + 1);
-
-            while ((left <= left_end) && (mid <= right))
-            {
-                if (numbers[left] <= numbers[mid])
-                    temp[tmp_pos++] = numbers[left++];
+            for (i = 0; i < n1; i++)
+                L[i] = arr[p + i - 1];
+            for (j = 0; j < n2; j++)
+                R[j] = arr[q + j];
+            L[n1 + 1] = intMax;
+            R[n2 + 1] = intMax;
+            i = 1;
+            j = 1;
+            for (int k = p; k <= r; k++)
+                if (L[i] <= R[j])
+                {
+                    arr[k] = L[i];
+                    i = i + 1;
+                }
                 else
-                    temp[tmp_pos++] = numbers[mid++];
-            }
-
-            while (left <= left_end)
-                temp[tmp_pos++] = numbers[left++];
-
-            while (mid <= right)
-                temp[tmp_pos++] = numbers[mid++];
-
-            for (i = 0; i < num_elements; i++)
-            {
-                numbers[right] = temp[right];
-                right--;
-            }
+                {
+                    arr[k] = R[j];
+                    j = j + 1;
+                }
         }
+
+        //static public void Merge(int[] numbers, int left, int mid, int right)
+        //{
+        //    int[] temp = new int[25];
+        //    int i, left_end, num_elements, tmp_pos;
+
+        //    left_end = (mid - 1);
+        //    tmp_pos = left;
+        //    num_elements = (right - left + 1);
+
+        //    while ((left <= left_end) && (mid <= right))
+        //    {
+        //        if (numbers[left] <= numbers[mid])
+        //            temp[tmp_pos++] = numbers[left++];
+        //        else
+        //            temp[tmp_pos++] = numbers[mid++];
+        //    }
+
+        //    while (left <= left_end)
+        //        temp[tmp_pos++] = numbers[left++];
+
+        //    while (mid <= right)
+        //        temp[tmp_pos++] = numbers[mid++];
+
+        //    for (i = 0; i < num_elements; i++)
+        //    {
+        //        numbers[right] = temp[right];
+        //        right--;
+        //    }
+        //}
 
         public static void MergeSort(int[] arr, int p, int r)
         {
